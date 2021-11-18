@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referências</title>
+    <style>
+        #entradas{
+            background-color: rgb(92, 92, 228);
+            text-align: center;
+            padding: 15px;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: auto;
+        }
+        h1{
+            text-align: center;
+        }
+        .inputs{
+            margin-bottom: 3px;
+        }
+        #saida{
+            padding: 50px;
+            margin: auto;
+        }
+        .dates{
+            width: 10px;
+        }
+        #pub{
+            margin: 2px;
+            margin-left: 62px;
+            text-align: left;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Referências ABNT com autor</h1>
+    <div id="entradas">
+        <p id="pub">Autor:</p>
+        <input type="text" placeholder="Sobrenome do autor" class="inputs" id="surname">
+        <input type="text" placeholder="Nome do autor" class="inputs" id="author">
+        <hr>
+        <p id="pub">Dados da matéria:</p>
+        <input type="text" placeholder="Título" class="inputs" id='title'>
+        <br>
+        <input type="text" placeholder="Nome do site" class="inputs" 
+        id="site"> <br>
+        <input type="text" placeholder="Cidade de publicação" class="inputs" id="location">
+        <hr>
+
+        <p id="pub">Publicação:</p>
+        <input type="text" placeholder="Dia da publicação" class="inputs" id="day" maxlength="2" class="dates">
+        <input type="text" placeholder="Mês da publicação" class="inputs" id="month" maxlength="3" class="dates">
+        <input type="text" placeholder="Ano da publicação" class="inputs" id="year" maxlength="4" class="dates">  <br>
+
+        <hr>
+        <p id="pub">Site:</p>
+        <input type="text" placeholder="URL" class="inputs" id="url"> <br>
+        <input type="text" placeholder="Dia do acesso" class="inputs" id="day1" maxlength="2">
+        <input type="text" placeholder="Mês do acesso" class="inputs" id="month1" maxlength="3">
+        <input type="text" placeholder="Ano do acesso" class="inputs" id="year1" maxlength="4">
+        <br>
+        <button type="submit" onclick="enviar()">Enviar</button>
+    </div>
+    <div id="saida">
+    </div>
+</body>
+<script>
+    var surname = document.querySelector("#surname")
+    var site = document.querySelector("#site")
+    var author = document.querySelector('#author')
+    var day = document.querySelector('#day')
+    var month = document.querySelector('#month')
+    var year = document.querySelector('#year')
+    var day1 = document.querySelector('#day1')
+    var month1 = document.querySelector("#month1")
+    var year1 = document.querySelector('#year1')
+    var title = document.querySelector('#title')
+    var cidade = document.querySelector('#location')
+    var Acesso = document.querySelector('#acesso')
+    var url = document.querySelector('#url')
+    function enviar() {
+        document.getElementById('saida').innerHTML=`<b> ${surname.value.toUpperCase()}</b>, ${author.value.toLowerCase()}. ${title.value}. <strong>${site.value}</strong>, ${cidade.value}, ${day.value} de ${month.value.toLowerCase()}. de ${year.value}. Disponível em: ${url.value}. Acesso em: ${day1.value} de ${month1.value.toLowerCase()}. de ${year1.value}.`
+    }
+</script>
+</html>
